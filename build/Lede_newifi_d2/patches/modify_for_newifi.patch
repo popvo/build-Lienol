@@ -1,0 +1,13 @@
+diff --git a/target/linux/ramips/image/mt7621.mk b/target/linux/ramips/image/mt7621.mk
+index 9ead1c0..a9e9a29 100644
+--- a/target/linux/ramips/image/mt7621.mk
++++ b/target/linux/ramips/image/mt7621.mk
+@@ -258,7 +258,7 @@ TARGET_DEVICES += dlink_dir-882-a1
+ 
+ define Device/d-team_newifi-d2
+   $(Device/uimage-lzma-loader)
+-  IMAGE_SIZE := 32448k
++  IMAGE_SIZE := 124416k
+   DEVICE_VENDOR := Newifi
+   DEVICE_MODEL := D2
+   DEVICE_PACKAGES := kmod-mt7603e kmod-mt76x2e kmod-usb3 \
