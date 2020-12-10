@@ -120,6 +120,8 @@ jobs:
 
     - name: 加载源,patch补丁和自定义设置
       run: |
+        svn co https://github.com/281677160/N1/trunk reform
+        cp -Rf `find ./ -maxdepth 1 -type d ! -path './openwrt' ! -path './'` openwrt
         cd openwrt
         if [ -f "build/${{matrix.target}}/$DIY_P1_SH" ]; then
           chmod +x build/${{matrix.target}}/$DIY_P1_SH
@@ -128,7 +130,7 @@ jobs:
         if [ build/${{matrix.target}} != build/openwrt ]; then
           git clone -b $REPO_BRANCH --single-branch https://github.com/popvo/openwrt-package package/danshui
         fi
-        ./scripts/feeds clean && ./scripts/feeds update -a && ./scripts/feeds install -a && ./scripts/feeds install -a
+        ./scripts/feeds clean && ./scripts/feeds update -a && ./scripts/feeds install -a
         if [ -f "build/${{matrix.target}}/$DIY_P2_SH" ]; then
           chmod +x build/${{matrix.target}}/$DIY_P2_SH
           /bin/bash "build/${{matrix.target}}/$DIY_P2_SH"
